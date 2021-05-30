@@ -17,13 +17,15 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
+        if (Auth::guard($guard)->check()) {
+            switch ($guard) {
+                case 'admin-web':
+                    return redirect(RouteServiceProvider::ADMIN_HOME);
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                default:
+                    return redirect(RouteServiceProvider::HOME);
             }
         }
 
