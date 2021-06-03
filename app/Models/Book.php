@@ -8,12 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+    protected $table="books";
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'name_buku',
+        'id',
+        'nama_buku',
         'penulis',
         'tentang_buku',
         'status_buku',
         'foto',
     ];
+
+    public function borrow()
+    {
+        return $this->hasMany(Borrow::class);
+    }
 
 }

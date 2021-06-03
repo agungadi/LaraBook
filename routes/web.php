@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,22 +22,31 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/pinjam/{id}', 'HomeController@tambahpinjam')->name('pinjambuku');
+Route::resource('pinjam', UserController::class);
 
-Route::get('/confirmed', function () {
-    return 'password confirmed';
-})->middleware(['auth', 'password.confirm']);
-
-Route::get('/verified', function () {
-    return 'email verified';
-})->middleware('verified');
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
     Route::get('/', function () {
         return view('admin.welcome');
     })->name('welcome');
 
+
     Auth::routes(['verify' => true]);
 
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/peminjaman', 'PinjamController@index')->name('pinjam');
+    Route::get('/member', 'MemberController@index')->name('member');
+
+    // Route::get('/pinjam', 'PinjamController@index')->name('pinjam');
+
+    Route::resource('buku', HomeController::class);
+    Route::resource('pinjam', PinjamController::class);
+    Route::get('/pinjam/selesai/{id_peminjaman}', 'PinjamController@dikembalikan')->name('kembali');
+
+    Route::resource('user', MemberController::class);
+
+    // Route::resource('crud', HomeAdminController::class);
+
 
 });

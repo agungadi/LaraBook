@@ -490,14 +490,15 @@ section {
 }
 
 .services .icon-box h4 {
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .services .icon-box h4 a {
-  color: #5f687b;
+  color: #0c4271;
   transition: ease-in-out 0.3s;
+  font-size: 30px;
 }
 
 .services .icon-box p {
@@ -755,7 +756,7 @@ thead{
   border-left:1px solid #eee;
   border-top:1px solid #eee;
   border-right:2px solid #eee;
-  border-bottom:2px solid #eee; 
+  border-bottom:2px solid #eee;
 }
 
 .content-box-large {
