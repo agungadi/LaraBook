@@ -1,4 +1,4 @@
-@extends('admin.layouts.headerpinjam')
+@extends('layouts.appdaftarpinjam')
 
 @section('content')
 <div class="container">
@@ -24,7 +24,7 @@
 
 				</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.buku.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('konfirmasipinjam') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -33,7 +33,7 @@
                             <div class="col-md-6">
                                 <div class="input-group input-daterange">
 
-                                <input id="start" type="text" class="form-control @error('nama_buku') is-invalid @enderror" name="tglkembali" value="">
+                                <input id="start" type="text" class="form-control @error('nama_buku') is-invalid @enderror" name="tanggal_kembali" value="">
                                 <span class="fa fa-calendar" id="fa-2"></span>
 
                                 @error('nama_buku')
@@ -49,8 +49,8 @@
                         <div class="form-group row">
 
                             <div class="col-md-6">
-                                <input id="tentang_buku" type="hidden" class="form-control @error('tentang_buku') is-invalid @enderror" name="tentang_buku" value="{{ Auth::user()->id }}" required autocomplete="tentang_buku">
-                                <input id="tentang_buku" type="hidden" class="form-control @error('tentang_buku') is-invalid @enderror" name="tentang_buku" value="{{ $books->id }}" required autocomplete="tentang_buku">
+                                <input id="tentang_buku" type="hidden" class="form-control @error('tentang_buku') is-invalid @enderror" name="id_member" value="{{ Auth::user()->id }}" required autocomplete="tentang_buku">
+                                <input id="tentang_buku" type="hidden" class="form-control @error('tentang_buku') is-invalid @enderror" name="id_book" value="{{ $books->id }}" required autocomplete="tentang_buku">
 
                                 @error('tentang_buku')
                                     <span class="invalid-feedback" role="alert">

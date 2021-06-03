@@ -23,6 +23,10 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/pinjam/{id}', 'HomeController@tambahpinjam')->name('pinjambuku');
+Route::post('/home/pinjam/konfirmasi', 'HomeController@konfirmasipinjam')->name('konfirmasipinjam');
+Route::get('/home/riwayat', 'HomeController@daftarpinjam')->name('daftarpinjam');
+Route::delete('/home/riwayat/batalkan/{id}/{id_book}', 'HomeController@batalkan')->name('batalkan');
+
 Route::resource('pinjam', UserController::class);
 
 
