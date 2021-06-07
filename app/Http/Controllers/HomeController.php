@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+>>>>>>> f0affe47f4f7b5109864c8533d880cbd6d32589d
 
 class HomeController extends Controller
 {
@@ -88,6 +91,7 @@ class HomeController extends Controller
 
     public function daftarpinjam(Request $request)
     {
+<<<<<<< HEAD
         $this->denda();
         $this->expired();
 
@@ -214,4 +218,39 @@ class HomeController extends Controller
     return response()->json($borrow_ids);
 
 }
+=======
+        $userId = Auth::id();
+
+        // $buku = Borrow::with('book', 'user')->get();
+        $borrow = Borrow::Select("*")
+        ->where('id_member', $userId)
+        ->orderBy("id_peminjaman", "asc")
+        ->get();
+        return view('daftarpinjam', compact('borrow'));
+
+        // return view('daftarpinjam', ['buku'=>$buku,'Borrow'=>$borrow]);
+        return response()->json($borrow);
+    }
+
+    public function batalkan($id, $id_buku)
+    {
+
+        // $id_buku = $id;
+        Borrow::find($id)->delete();
+        $this->tersedia($id_buku);
+        // return response()->json($id_buku);
+
+        return redirect()->route('daftarpinjam')
+        -> with('success', 'Pinjaman Berhasil Dibatalkan');
+
+    }
+
+    public function tersedia($id_buku)
+    {
+        $book = Book::where('id', $id_buku)->first();
+        $book->status_buku = 'Tersedia';
+        $book->save();
+
+    }
+>>>>>>> f0affe47f4f7b5109864c8533d880cbd6d32589d
 }

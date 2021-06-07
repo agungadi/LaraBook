@@ -14,7 +14,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
+<<<<<<< HEAD
         <form method="get" action="{{ route('riwayatsearch') }}">
+=======
+        <form method="get" action="/search">
+>>>>>>> f0affe47f4f7b5109864c8533d880cbd6d32589d
             <div class="float-left my-2" style="margin-right:20px;">
                 <button type="submit" class="btn btn-warning">Search</button>
             </div>

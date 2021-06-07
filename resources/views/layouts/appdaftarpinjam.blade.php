@@ -60,10 +60,17 @@
             <a class="nav-link" href="{{ route('home') }}" style="font-size:18px; color:white; font-weight: bold;">Home</a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link" href="{{ route('daftarpinjam') }}" style="font-size:18px; color:white; font-weight: bold;">Daftar Pinjam</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('rules') }}" style="font-size:18px; color:white; font-weight: bold;">Rules</a>
+=======
+            <a class="nav-link" href="{{ route('admin.pinjam') }}" style="font-size:18px; color:white; font-weight: bold;">Daftar Pinjam</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.member') }}" style="font-size:18px; color:white; font-weight: bold;">Rules</a>
+>>>>>>> f0affe47f4f7b5109864c8533d880cbd6d32589d
         </li>
 
 

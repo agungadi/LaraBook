@@ -40,6 +40,7 @@ Route::get('/home/caribuku', [App\Http\Controllers\HomeController::class, 'carib
 Route::get('/home/pinjam/{id}', 'HomeController@tambahpinjam')->name('pinjambuku');
 Route::post('/home/pinjam/konfirmasi', 'HomeController@konfirmasipinjam')->name('konfirmasipinjam');
 Route::get('/home/riwayat', 'HomeController@daftarpinjam')->name('daftarpinjam');
+<<<<<<< HEAD
 Route::get('/home/riwayat/cari', [App\Http\Controllers\HomeController::class, 'caririwayat'])->name('riwayatsearch');
 
 Route::delete('/home/riwayat/batalkan/{id}/{id_book}', 'HomeController@batalkan')->name('batalkan');
@@ -47,6 +48,10 @@ Route::delete('/home/riwayat/batalkan/{id}/{id_book}', 'HomeController@batalkan'
 Route::get('/home/denda', 'HomeController@denda')->name('denda');
 Route::get('/home/expired', [App\Http\Controllers\HomeController::class, 'expired'])->name('expired');
 
+=======
+Route::delete('/home/riwayat/batalkan/{id}/{id_book}', 'HomeController@batalkan')->name('batalkan');
+
+>>>>>>> f0affe47f4f7b5109864c8533d880cbd6d32589d
 Route::resource('pinjam', UserController::class);
 
 
