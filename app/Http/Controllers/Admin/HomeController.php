@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Book;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -127,6 +128,15 @@ class HomeController extends Controller
         return redirect()->route('admin.home')
         -> with('success', 'Buku Berhasil Dihapus');
 
+    }
+
+
+    public function search(Request $request){
+        $search = $request->get('search');
+        $book = DB::table('books')
+        ->where('nama_buku','like','%'.$search.'%')
+        ->orWhere('penulis','like','%'.$search.'%')->get();
+        return view('admin.home', compact('book'));
     }
 
 }

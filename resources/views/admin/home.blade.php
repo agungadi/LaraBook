@@ -18,6 +18,22 @@
 
     <section id="services" class="services section-bg">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+
+                    <form method="get" action="/admin/home/search">
+                        <div class="float-right my-2" style="margin-left:20px;">
+                            <button type="submit" class="btn btn-warning">Search</button>
+                        </div>
+
+                        <div class="float-right my-2">
+                            <input type="search" name="search" class="form-control" id="cari" aria-describedby="search" >
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </br>
             {{-- @foreach(array_chunk($book, 2) as $chunk) --}}
             @foreach($book->chunk(3) as $chunk)
 
@@ -44,28 +60,9 @@
             @endforeach
 
         </div>
-        <div class="card-body">
-            <table id="bootstrap-data-table" class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Judul</th>
-                  <th>Keperluan</th>
 
-                </tr>
-                <tbody>
-
-              @foreach ($book as $i=>$row)
-                  <tr>
-                      <td>{{ $row->nama_buku }}</td>
-                      <td>{{ $row->penulis }}</td>
-
-                  </tr>
-              @endforeach
-                </table>
-                  </div>
     </section><!-- End Services Section -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+
 
 @endsection

@@ -28,7 +28,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-default">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ route('welcome') }}">
     <img src="{{ asset('bootstrap/logoa.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
     LaraBook
   </a>
@@ -49,7 +49,7 @@
 
         @if (Route::has('admin.register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register') }}</a>
+                {{-- <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register') }}</a> --}}
             </li>
         @endif
     @else
@@ -82,14 +82,14 @@
      @endif
 
      @else
-    <section id="cta" class="cta">
+    {{-- <section id="cta" class="cta">
         <div class="container">
       <div class="text-center">
             <h3>CHOOSE YOUR BOOK</h3>
             <p><b>List Book</b></p>
           </div>
         </div>
-         </section>
+         </section> --}}
      @endguest
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

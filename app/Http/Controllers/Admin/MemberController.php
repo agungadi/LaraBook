@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -110,5 +111,15 @@ class MemberController extends Controller
         User::find($id)->delete();
         return redirect()->route('admin.member')
         -> with('success', 'Member Berhasil Dihapus');
+    }
+
+    public function search(Request $request){
+        $search = $request->get('search');
+        $user = DB::table('users')
+        ->where('name','like','%'.$search.'%')
+        ->orWhere('email','like','%'.$search.'%')
+        ->orWhere('alamat','like','%'.$search.'%')
+        ->orWhere('no_hp','like','%'.$search.'%')->get();
+        return view('admin.member.index', compact('user'));
     }
 }

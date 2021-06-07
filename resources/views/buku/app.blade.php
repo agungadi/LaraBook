@@ -29,7 +29,7 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-default">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ route('welcome') }}">
     <img src="bootstrap/logoa.png" width="30" height="30" class="d-inline-block align-top" alt="">
     LaraBook
   </a>
@@ -83,14 +83,7 @@
      @endif
 
      @else
-    <section id="cta" class="cta">
-        <div class="container">
-      <div class="text-center">
-            <h3>CHOOSE YOUR BOOK</h3>
-            <p><b>List Book</b></p>
-          </div>
-        </div>
-         </section>
+
      @endguest
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

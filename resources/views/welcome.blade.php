@@ -63,35 +63,25 @@
           <h2>New Book Release</h2>
           <p>Borrow Now</p>
         </div>
+        @foreach($book->chunk(3) as $chunk)
+
         <div class="row">
-{{--
-        <php
-            include "koneksi.php";
+            @foreach ($chunk as $buku)
 
-            $query = "select * from buku order by id_buku desc LIMIT 3";
-            $result = mysqli_query($connect, $query);
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch"  id="range">
+                <div class="icon-box">
+                <img src="{{asset('storage/'.$buku->foto)}}" width="150" style="margin-top:20px;">
+                <h3 style="padding:10px;"><a href="">{{ $buku->nama_buku }}</a></h3>
+                <h4>{{ $buku->penulis }}</h4>
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-            ?> --}}
-            {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch"  id="range">
-              <div class="icon-box">
-              <img src="img/<php echo $row['foto'] ?>" width="150" style="margin-top:20px;">
-              <h3 style="padding:10px;"><a href=""><php echo $row['nama_buku'] ?></a></h3>
-                <h4><php echo $row['penulis'] ?></h4>
+                </div>
 
-              </div>
-            </div> --}}
-          {{-- <php
-                      }
-                  } else {
-                      echo "0 Result";
-                  }
-                  ?>  --}}
-
-        </div>
-
+            </div>
+            @endforeach
       </div>
+      @endforeach
+
+    </div>
     </section><!-- End Services Section -->
 
     <!-- ======= Cta Section ======= -->

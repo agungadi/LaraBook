@@ -13,11 +13,30 @@
 
 
   <!-- Template Main CSS File -->
-  {{-- <link href="assets/css/style.css" rel="stylesheet"> --}}
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
 
   <link href="{{ asset('bootstrap/css/util.css') }}" rel="stylesheet">
   <link href="{{ asset('bootstrap/css/main.css') }}" rel="stylesheet">
+
+  <!------date------>
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+  <link href="{{ asset('datepick/date.css') }}" rel="stylesheet">
+
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+  <script type='text/javascript' src="{{ asset('datepick/date.js') }}" defer></script>
+
+</head>
+<body oncontextmenu='return false' class='snippet-body'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+  <!------date------>
 
   <title>Perpustakaan</title>
 </head>
@@ -28,7 +47,7 @@
     <a class="navbar-brand" href="{{ route('home') }}">
     <img src="{{ asset('bootstrap/logoa.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
     LaraBook
-    </a>
+  </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -40,41 +59,13 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}" style="font-size:18px; color:white; font-weight: bold;">Home</a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link" href="{{ route('daftarpinjam') }}" style="font-size:18px; color:white; font-weight: bold;">Daftar Pinjam</a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link" href="{{ route('rules') }}" style="font-size:18px; color:white; font-weight: bold;">Rules</a>
         </li>
 
-        {{-- <li>
-            <a class="nav-dropdown" href="{{ route('logout') }}" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-        </li> --}}
-
-        <li class="nav-item dropdown">
-        <a  class="nav-link dropdown-toggle" href="#" style="font-size:18px; color:white; font-weight: bold;" id="navbarDropdown"data-display="static" data-toggle="dropdown" aria-haspopup="true" >
-          Profile
-        </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-            <h6 class="dropdown-header">Your Account  {{ Auth::user()->name }}</h6>
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-          </div>
-        </li>
 
       </ul>
 
@@ -85,12 +76,20 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {{-- <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script> --}}
-    <script src="{{ asset('bootstrap/js/jquery-3.3.1.slim.min.js') }}" defer></script>
+    {{-- <script src="{{ asset('bootstrap/js/jquery-3.3.1.slim.min.js') }}" defer></script> --}}
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+
+
+
 
     <!--extends -->
     @yield('content')
-    <!--extends -->
+    {{-- <!--extends -->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script> --}}
+    {{-- <script src="{{ asset('datepick/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('datepick/jquery.min.js') }}" defer></script> --}}
+
 
 </body>
 </html>

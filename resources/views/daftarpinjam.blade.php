@@ -1,4 +1,4 @@
-@extends('admin.layouts.header')
+@extends('layouts.appdaftarpinjam')
 
 @section('content')
 <section id="services">
@@ -11,22 +11,21 @@
 
             <div  class="content-box-large">
 
-                <div class="row">
-                    <div class="col-lg-12 margin-tb">
+<div class="row">
+    <div class="col-lg-12 margin-tb">
 
-                        <form method="get" action="/admin/borrow/cari">
-                            <div class="float-left my-2" style="margin-right:20px;">
-                                <button type="submit" class="btn btn-warning">Search</button>
-                            </div>
+        <form method="get" action="{{ route('riwayatsearch') }}">
+            <div class="float-left my-2" style="margin-right:20px;">
+                <button type="submit" class="btn btn-warning">Search</button>
+            </div>
 
-                            <div class="float-left my-2">
-                                <input type="search" name="search" class="form-control" id="cari" aria-describedby="search" >
-                            </div>
+            <div class="float-left my-2">
+                <input type="search" name="search" class="form-control" id="cari" aria-describedby="search" >
+            </div>
 
-                        </form>
-                    </div>
-                </div>
-
+        </form>
+    </div>
+</div>
 
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
@@ -40,7 +39,6 @@
                 <th>Id</th>
                 <th width="100px">Nama Buku</th>
                 <th>Foto</th>
-                <th>Nama Peminjam</th>
                 <th>Tgl Pinjam</th>
                 <th>Tgl Kembali</th>
                 <th>Denda</th>
@@ -49,31 +47,29 @@
             </thead>
 
                 </tr>
-                @foreach ($Borrow as $buku)
+                @foreach ($borrow as $buku)
                 <tr>
                 <td>{{ $buku->id_peminjaman }}</td>
                 <td style="width:200px">{{ $buku->book->nama_buku }}</td>
                 <td><img width="100px" src="{{asset('storage/'.$buku->book->foto)}}"></td>
-                <td>{{ $buku->user->name }}</td>
                 <td>{{ $buku->tanggal_pinjam }}</td>
                 <td>{{ $buku->tanggal_kembali }}</td>
                 <td>{{ $buku->denda }}</td>
                 <td>{{ $buku->status }}</td>
                 <td>
-                <form action="{{ route('admin.pinjam.destroy', $buku->id_peminjaman) }}" method="POST">
                 @if($buku->status === 'Booked')
 
-                <a class="btn btn-success" href="{{ route('admin.setujui',$buku->id_peminjaman) }}">Setujui</a>
+                <form action="{{ route('batalkan', [$buku->id_peminjaman, $buku->id_book]) }}" method="POST">
 
-                @else
-                <a class="btn btn-info" href="{{ route('admin.kembali',$buku->id_peminjaman) }}">Selesai</a>
-                @endif
-                </br>
-            </br>
+
                 @csrf
                 @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Batalkan</button>
             </form>
+
+                 @endif
+
+            </div>
             </td>
             </tr>
                 @endforeach

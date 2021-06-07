@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
 
-        <form method="get" action="/search">
+        <form method="get" action="/admin/member/search">
             <div class="float-left my-2" style="margin-right:20px;">
                 <button type="submit" class="btn btn-warning">Search</button>
             </div>
